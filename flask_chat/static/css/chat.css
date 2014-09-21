@@ -5,7 +5,7 @@
 }
 #chat {
   position: relative;
-  border: 1px solid #ccc;
+  border: 1px solid #FEC938;
 }
 #nickname,
 #connecting {
@@ -14,7 +14,7 @@
   z-index: 100;
   left: 0;
   top: 0;
-  background: #fff;
+  background: #FEC938;
   text-align: center;
   width: 100%;
   font: 15px Georgia;
@@ -26,7 +26,7 @@
   padding-top: 150px;
 }
 #nickname input {
-  border: 1px solid #ccc;
+  border: 1px solid #FEC938;
   padding: 10px;
 }
 #nickname input:focus {
@@ -46,7 +46,7 @@
 }
 #messages {
   height: 100%;
-  background: #eee;
+  background: #FEC938;
 }
 #messages em {
   text-shadow: 0 1px 0 #fff;
@@ -63,7 +63,8 @@
   padding-right: 10px;
 }
 #messages p:nth-child(even) {
-  background: #fafafa;
+  background: #750E23;
+  color: #ffffff;
 }
 #messages #nicknames {
   background: #ccc;
@@ -113,14 +114,16 @@
 }
 #messages #lines::-webkit-scrollbar-thumb:horizontal {
   width: 50px;
-  background-color: #fff;
+  background-color: #750E23;
   -webkit-border-radius: 3px;
 }
 #send-message {
-  background: #fff;
+  background: #750E23;
   position: relative;
 }
 #send-message input {
+  background: #750E23;
+  color: #ffffff;
   border: none;
   height: 30px;
   padding: 0 10px;
@@ -143,11 +146,7 @@ button {
   user-select: none;
   display: inline-block;
   text-decoration: none;
-  background: #43a1f7;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #43a1f7), color-stop(1, #377ad0));
-  background: -webkit-linear-gradient(top, #43a1f7 0%, #377ad0 100%);
-  background: -moz-linear-gradient(top, #43a1f7 0%, #377ad0 100%);
-  background: linear-gradient(top, #43a1f7 0%, #377ad0 100%);
+  background: #750E23;
   border: 1px solid #2e70c4;
   -webkit-border-radius: 16px;
   -moz-border-radius: 16px;
@@ -163,18 +162,14 @@ button {
 }
 button:hover,
 button.hover {
-  background: darker;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #43a1f7), color-stop(1, #2e70c4));
-  background: -webkit-linear-gradient(top, #43a1f7 0%, #2e70c4 100%);
-  background: -moz-linear-gradient(top, #43a1f7 0%, #2e70c4 100%);
-  background: linear-gradient(top, #43a1f7 0%, #2e70c4 100%);
+  background: #750E23;
   border: 1px solid #2e70c4;
   cursor: pointer;
   text-shadow: 0 -1px 1px #2c6bbb;
 }
 button:active,
 button.active {
-  background: #2e70c4;
+  background: #750E23;
   border: 1px solid #2e70c4;
   border-bottom: 1px solid #2861aa;
   text-shadow: 0 -1px 1px #2b67b5;
