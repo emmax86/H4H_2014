@@ -1,7 +1,7 @@
 #chat,
 #nickname,
 #messages {
-  width: 600px;
+  width: 100%;
 }
 #chat {
   position: relative;
@@ -16,7 +16,7 @@
   top: 0;
   background: #fff;
   text-align: center;
-  width: 600px;
+  width: 100%;
   font: 15px Georgia;
   color: #666;
   display: block;
@@ -126,7 +126,7 @@
   padding: 0 10px;
   line-height: 30px;
   vertical-align: middle;
-  width: 580px;
+  width: 95%;
 }
 #send-message input:focus {
   outline: 0;
