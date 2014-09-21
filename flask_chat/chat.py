@@ -38,7 +38,7 @@ class ChatRoom(db.Model):
         db.session.add(self)
         db.session.commit()
 
-    def delete(self)
+    def delete(self):
         db.session.remove(self)
         db.session.commit()
 
