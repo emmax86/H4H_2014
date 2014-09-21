@@ -77,6 +77,9 @@ def init_db():
     db.create_all(app=app)
 
 
+def base64_url_encode(input):
+ return input.replace('+', '-').replace('/', '_').replace('=', ',')
+
 # views
 @app.route('/')
 def rooms():
@@ -97,7 +100,7 @@ def room(slug):
 
 @app.route('/create_room')
 def create_room():
-    room_name = urandom(20)
+    room_name = base64_url_encode(urandom(20).encode('base64'))
     room, created = get_or_create(ChatRoom, name=room_name)
     return "Response: OK!\n" + room_name, 200
 
