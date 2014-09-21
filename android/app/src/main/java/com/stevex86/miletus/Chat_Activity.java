@@ -7,12 +7,15 @@ import android.view.MenuItem;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 
+import java.net.CookieManager;
+
 
 public class Chat_Activity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        android.webkit.CookieManager.getInstance().setAcceptCookie(true);
         setContentView(R.layout.activity_chat);
         WebView myWebView = (WebView) findViewById(R.id.webView);
         WebSettings webSettings = myWebView.getSettings();
