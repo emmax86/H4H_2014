@@ -101,7 +101,7 @@ def room(slug):
 @app.route('/create_room')
 def create_room():
     room_name = randint(1000000000, 9999999999)
-    room, created = get_or_create(ChatRoom, name=room_name)
+    room, created = get_or_create(ChatRoom, name=unicode(room_name))
     return "Response: OK!\n" + room_name, 200
 
 @app.route('/create', methods=['POST'])
