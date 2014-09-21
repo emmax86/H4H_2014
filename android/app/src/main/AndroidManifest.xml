@@ -20,10 +20,6 @@
             android:label="@string/title_activity_chat"
             android:windowSoftInputMode="stateVisible|adjustResize">
         </activity>
-        <activity
-            android:name=".Create_Account_Activity"
-            android:label="@string/title_activity_create__account_" >
-        </activity>
     </application>
 
     <!-- To auto-complete the email text field in the login form with the user's emails -->
