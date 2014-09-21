@@ -95,16 +95,11 @@ def room(slug):
     context = {"room": get_object_or_404(ChatRoom, slug=slug)}
     return render_template('room.html', **context)
 
-
-@app.route('/create_room', methods=['POST'])
+@app.route('/create_room')
 def create_room():
-    name = request.form.get("name")
-
-    if name:
-        room_name = urandom(20)
-        room, created = get_or_create(ChatRoom, name=room_name)
-        return 'Response: OK!\n' + room_name, 200
-    return 'Response: FAILED!', 407
+    room_name = urandom(20)
+    room, created = get_or_create(ChatRoom, name=room_name)
+    return 'Response: OK!\n' + room_name, 200
 
 @app.route('/create', methods=['POST'])
 def create():
