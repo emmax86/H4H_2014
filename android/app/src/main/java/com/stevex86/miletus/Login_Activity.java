@@ -4,11 +4,13 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.PopupWindow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -37,6 +39,7 @@ public class Login_Activity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_);
+        StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().permitAll().build());
 
         enterButton = (Button) findViewById(R.id.goButton);
         showLicenseButton = (Button) findViewById(R.id.licenseAgreement);
@@ -72,10 +75,18 @@ public class Login_Activity extends Activity {
 
 
     public void goButtonClick(View view) {
+        if(!checkBox.isChecked())
+        {
+            Toast.makeText(this, "You must agree to the EULA.", Toast.LENGTH_LONG).show();
+            return;
+        }
         HttpClient client = new DefaultHttpClient();
-        HttpPost post = new HttpPost("http://stevex86.com:5000/create_room");
+        HttpGet get = new HttpGet("http://stevex86.com:5000/create_room");
         try {
-            HttpResponse response = client.execute(post);
+            HttpResponse response = client.execute(get);
+            HttpEntity entity = response.getEntity();
+            String responseBody = EntityUtils.toString(entity);
+            Toast.makeText(this, responseBody, Toast.LENGTH_LONG).show();
         } catch (ClientProtocolException e) {
             e.printStackTrace();
         } catch (IOException e) {
