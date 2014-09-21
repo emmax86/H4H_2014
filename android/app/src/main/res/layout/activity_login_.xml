@@ -32,6 +32,7 @@
         android:layout_width="199dp"
         android:layout_height="34dp"
         android:text="User License Agreement"
+        android:onClick="popupLicense"
         android:id="@+id/licenseAgreement" />
 
     <CheckBox
