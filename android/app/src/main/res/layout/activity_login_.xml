@@ -22,21 +22,39 @@
         android:layout_weight="0.55" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Enter Chat"
         android:id="@+id/goButton"
-        android:onClick="goButtonClick"
-        android:layout_gravity="center_horizontal" />
 
+        android:text="Enter Chat"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+
+        android:layout_width="270dp"
+        android:layout_height="60dp"
+        android:background="@drawable/buttonshape"
+        android:shadowColor="#A8A8A8"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
+        />
+
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.04" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
-        android:layout_width="199dp"
-        android:layout_height="34dp"
+        android:textColor="#FFFFFF"
+        android:layout_width="165dp"
+        android:layout_height="25dp"
+        android:background="@drawable/buttonshape"
         android:text="User License Agreement"
         android:onClick="popupLicense"
-        android:id="@+id/licenseAgreement" />
+        android:id="@+id/licenseAgreement"
+
+        />
 
     <CheckBox
         android:layout_width="116dp"
@@ -44,12 +62,6 @@
         android:text="I agree"
         android:id="@+id/agreementCheckBox"
         android:layout_gravity="center_horizontal" />
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_weight="0.42" />
 
 </LinearLayout>
 
