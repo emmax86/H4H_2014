@@ -5,6 +5,7 @@ from socketio.namespace import BaseNamespace
 from socketio.mixins import RoomsMixin, BroadcastMixin
 from werkzeug.exceptions import NotFound
 from gevent import monkey
+from os import urandom
 
 from flask import Flask, Response, request, render_template, url_for, redirect
 from flask.ext.sqlalchemy import SQLAlchemy
@@ -95,11 +96,12 @@ def room(slug):
     return render_template('room.html', **context)
 
 
-@app.route('/login/user', methods=['POST'])
+@app.route('/create_room', methods=['POST'])
 def login_user():
     name = request.form.get("name")
+
     if name:
-        room, created = get_or_create(ChatRoom, name=name)
+        room, created = get_or_create(ChatRoom, name=urandom(20))
         return 'Response: OK!', 200
     return 'Response: FAILED!', 407
 
