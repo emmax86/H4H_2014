@@ -97,12 +97,13 @@ def room(slug):
 
 
 @app.route('/create_room', methods=['POST'])
-def login_user():
+def create_room():
     name = request.form.get("name")
 
     if name:
-        room, created = get_or_create(ChatRoom, name=urandom(20))
-        return 'Response: OK!', 200
+        room_name = urandom(20)
+        room, created = get_or_create(ChatRoom, name=room_name)
+        return 'Response: OK!\n' + room_name, 200
     return 'Response: FAILED!', 407
 
 @app.route('/create', methods=['POST'])
