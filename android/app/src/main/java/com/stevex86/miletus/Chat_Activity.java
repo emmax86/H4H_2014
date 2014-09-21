@@ -6,6 +6,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 import java.net.CookieManager;
 
@@ -18,8 +19,10 @@ public class Chat_Activity extends Activity {
         android.webkit.CookieManager.getInstance().setAcceptCookie(true);
         setContentView(R.layout.activity_chat);
         WebView myWebView = (WebView) findViewById(R.id.webView);
+        myWebView.setWebViewClient(new WebViewClient());
         WebSettings webSettings = myWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
+        myWebView.loadUrl("http://google.com");
     }
 
 
