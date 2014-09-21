@@ -95,6 +95,14 @@ def room(slug):
     return render_template('room.html', **context)
 
 
+@app.route('/login/user', methods=['POST'])
+def login_user():
+    name = request.form.get("name")
+    if name:
+        room, created = get_or_create(ChatRoom, name=name)
+        return 'Response: OK!', 200
+    return 'Response: FAILED!', 407
+
 @app.route('/create', methods=['POST'])
 def create():
     """
