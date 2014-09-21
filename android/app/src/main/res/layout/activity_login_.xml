@@ -23,6 +23,7 @@
         android:layout_height="wrap_content"
         android:text="Enter Chat"
         android:id="@+id/goButton"
+        android:onClick="goButtonClick"
         android:layout_gravity="center_horizontal" />
 
 
