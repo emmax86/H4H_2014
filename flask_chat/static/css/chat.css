@@ -10,7 +10,7 @@
 #nickname,
 #connecting {
   position: absolute;
-  height: 410px;
+  height: 100%;
   z-index: 100;
   left: 0;
   top: 0;
@@ -45,7 +45,7 @@
   display: none;
 }
 #messages {
-  height: 380px;
+  height: 95%;
   background: #eee;
 }
 #messages em {
@@ -85,7 +85,7 @@
   text-shadow: 0 1px 0 #666;
 }
 #messages #lines {
-  height: 355px;
+  height: 90%;
   overflow: auto;
   overflow-x: hidden;
   overflow-y: auto;
