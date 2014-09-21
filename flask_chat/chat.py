@@ -99,7 +99,7 @@ def room(slug):
 def create_room():
     room_name = urandom(20)
     room, created = get_or_create(ChatRoom, name=room_name)
-    return 'Response: OK!\n' + room_name, 200
+    return "Response: OK!\n" + room_name, 200
 
 @app.route('/create', methods=['POST'])
 def create():
@@ -112,6 +112,11 @@ def create():
         room, created = get_or_create(ChatRoom, name=name)
         return redirect(url_for('room', slug=room.slug))
     return redirect(url_for('rooms'))
+
+@app.route('/license_consultee')
+def get_consultee_license():
+    license_consultee_file = open("license_consultee.txt", "r")
+    return license_consultee_file.read(), 200
 
 
 class ChatNamespace(BaseNamespace, RoomsMixin, BroadcastMixin):
