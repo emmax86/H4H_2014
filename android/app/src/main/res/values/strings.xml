@@ -6,5 +6,6 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_create__account_">Create_Account_Activity</string>
+    <color name="gold">#FEC938</color>
 
 </resources>
