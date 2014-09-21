@@ -38,6 +38,10 @@ class ChatRoom(db.Model):
         db.session.add(self)
         db.session.commit()
 
+    def delete(self)
+        db.session.remove(self)
+        db.session.commit()
+
 
 class ChatUser(db.Model):
     __tablename__ = 'chatusers'
@@ -135,11 +139,14 @@ class ChatNamespace(BaseNamespace, RoomsMixin, BroadcastMixin):
     def on_join(self, room):
         self.room = room
         self.join(room)
+        if self.room.users is None:
+            self.room.users = []
         return True
 
     def on_nickname(self, nickname):
         self.log('Nickname: {0}'.format(nickname))
         self.nicknames.append(nickname)
+        self.room.users.append(nickname)
         self.session['nickname'] = nickname
         self.emit_to_room(self.room, 'msg_to_room',
             nickname, 'connected')
@@ -150,9 +157,12 @@ class ChatNamespace(BaseNamespace, RoomsMixin, BroadcastMixin):
         self.log('Disconnected')
         nickname = self.session['nickname']
         self.nicknames.remove(nickname)
+        self.room.users.remove(nickname)
         self.emit_to_room(self.room, 'msg_to_room',
             nickname, 'disconnected')
         self.disconnect(silent=True)
+        if not self.room.users:
+            ChatRoom.query.filter_by(self.room.name).first().remove()
         return True
 
     def on_user_message(self, msg):
