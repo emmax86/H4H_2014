@@ -30,7 +30,7 @@
         android:id="@+id/reviewConsultantButton"
         android:background="@drawable/buttonshape"
         android:textColor="@color/white"
-        android:text="Review"
+        android:text="I'm done!"
         android:onClick="reviewButtonClick"
         />
 
