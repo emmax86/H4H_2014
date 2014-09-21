@@ -5,7 +5,7 @@ from socketio.namespace import BaseNamespace
 from socketio.mixins import RoomsMixin, BroadcastMixin
 from werkzeug.exceptions import NotFound
 from gevent import monkey
-from os import urandom
+from random import randint
 
 from flask import Flask, Response, request, render_template, url_for, redirect
 from flask.ext.sqlalchemy import SQLAlchemy
@@ -80,10 +80,6 @@ def get_or_create(klass, **kwargs):
 def init_db():
     db.create_all(app=app)
 
-
-def base64_url_encode(input):
- return input.replace('+', '-').replace('/', '_').replace('=', ',')
-
 # views
 @app.route('/')
 def rooms():
@@ -104,7 +100,7 @@ def room(slug):
 
 @app.route('/create_room')
 def create_room():
-    room_name = unicode(base64_url_encode(urandom(20).encode('base64')))
+    room_name = randint(1000000000, 9999999999)
     room, created = get_or_create(ChatRoom, name=room_name)
     return "Response: OK!\n" + room_name, 200
 
