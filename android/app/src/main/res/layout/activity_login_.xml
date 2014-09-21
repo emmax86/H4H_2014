@@ -24,7 +24,7 @@
         android:id="@+id/goButton"
 
         android:text="Enter Chat"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/white"
         android:textSize="30sp"
         android:onClick="goButtonClick"
         android:layout_width="270dp"
@@ -45,7 +45,7 @@
 
     <Button
         style="?android:attr/buttonStyleSmall"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/white"
         android:layout_width="165dp"
         android:layout_height="25dp"
         android:background="@drawable/buttonshape"
@@ -64,7 +64,7 @@
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/white"
         android:text=" I agree"
         android:button="@drawable/checkboxshape"
         android:id="@+id/agreementCheckBox"
