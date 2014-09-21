@@ -100,11 +100,7 @@ def room(slug):
 
 @app.route('/create_room')
 def create_room():
-<<<<<<< HEAD
     room_name = base64_url_encode(urandom(20).encode('base64'))
-=======
-    room_name = base_64_url_encode(urandom(20).encode('base64'))
->>>>>>> 7bbf43f18db2dd41feb8f273130b387ba99830c6
     room, created = get_or_create(ChatRoom, name=room_name)
     return "Response: OK!\n" + room_name, 200
 
