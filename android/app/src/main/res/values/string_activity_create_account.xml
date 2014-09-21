@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="prompt_create_username">Username</string>
+    <string name="prompt_create_password">Password</string>
+    <string name="prompt_confirm_password">Confirm Password</string>
+    <string name="prompt_authentication_key">Authentication Key</string>
+    <string name="action_register">Register</string>
+
+    <string name="error_invalid_username">This username is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">The passwords entered are not the same</string>
+    <string name="error_field_required">This field is required</string>
+</resources>
