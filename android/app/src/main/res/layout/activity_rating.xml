@@ -14,8 +14,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Was your consultant helpful?"
+        android:text="Helpful"
         android:id="@+id/question1"
+        android:shadowColor="#000000"
+        android:shadowRadius="dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
@@ -30,7 +32,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Large Text"
+        android:text="Knowledgeable about subject"
         android:id="@+id/question2"
         android:layout_below="@+id/rating1"
         android:layout_centerHorizontal="true" />
@@ -46,7 +48,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Large Text"
+        android:text="Compassionate"
         android:id="@+id/question3"
         android:layout_below="@+id/rating2"
         android:layout_centerHorizontal="true" />
@@ -60,7 +62,7 @@
 
     <Button
 
-        android:text="Submit"
+        android:text="Submit Rating"
         android:background="@drawable/buttonshape"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
