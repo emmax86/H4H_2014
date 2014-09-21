@@ -32,4 +32,6 @@ proguard/
 .idea/
 .idea/workspace.xml
 
+#Python
 *.pyc
+flask_chat/venv/
