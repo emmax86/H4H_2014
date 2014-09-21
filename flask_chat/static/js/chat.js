@@ -12,13 +12,6 @@ $(function() {
         $('#lines').append($('<p>').append($('<em>').text(msg)));
     });
 
-    socket.on('nicknames', function (nicknames) {
-        $('#nicknames').empty().append($('<span>Online: </span>'));
-        for (var i in nicknames) {
-          $('#nicknames').append($('<b>').text(nicknames[i]));
-        }
-    });
-
     socket.on('msg_to_room', message);
 
     socket.on('reconnect', function () {

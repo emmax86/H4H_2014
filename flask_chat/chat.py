@@ -127,8 +127,8 @@ class ChatNamespace(BaseNamespace, RoomsMixin, BroadcastMixin):
         self.log('Nickname: {0}'.format(nickname))
         self.nicknames.append(nickname)
         self.session['nickname'] = nickname
-        self.broadcast_event('announcement', '%s has connected' % nickname)
-        self.broadcast_event('nicknames', self.nicknames)
+        self.emit_to_room(self.room, 'msg_to_room',
+            nickname, 'connected')
         return True, nickname
 
     def recv_disconnect(self):
@@ -136,8 +136,8 @@ class ChatNamespace(BaseNamespace, RoomsMixin, BroadcastMixin):
         self.log('Disconnected')
         nickname = self.session['nickname']
         self.nicknames.remove(nickname)
-        self.broadcast_event('announcement', '%s has disconnected' % nickname)
-        self.broadcast_event('nicknames', self.nicknames)
+        self.emit_to_room(self.room, 'msg_to_room',
+            nickname, 'disconnected')
         self.disconnect(silent=True)
         return True
 
@@ -146,7 +146,6 @@ class ChatNamespace(BaseNamespace, RoomsMixin, BroadcastMixin):
         self.emit_to_room(self.room, 'msg_to_room',
             self.session['nickname'], msg)
         return True
-
 
 @app.route('/socket.io/<path:remaining>')
 def socketio(remaining):
