@@ -30,7 +30,7 @@ class ChatRoom(db.Model):
         return self.name
 
     def get_absolute_url(self):
-        return url_for('room', slug=self.slug)
+        return url_for('room', slug=self.slug) + "/consultant"
 
     def save(self, *args, **kwargs):
         if not self.slug:
@@ -97,6 +97,11 @@ def room(slug):
     """
     context = {"room": get_object_or_404(ChatRoom, slug=slug)}
     return render_template('room.html', **context)
+
+@app.route('/<path:slug>/consultant')
+def room_cons(slug):
+    context = {"room": get_object_or_404(ChatRoom, slug=slug)}
+    return render_template('room_cons.html', **context)
 
 @app.route('/create_room')
 def create_room():

@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}{{ room }}{% endblock %}
+
+{% block extra_js %}
+<script type="text/javascript">
+    window.room = "{{ room.id }}";
+</script>
+<script src="/static/js/chat.js"></script>
+{% endblock %}
+
+{% block content %}
+<div id="chat">
+    <div id="nickname">
+        <form id="set-nickname" class="wrap">
+            <p>Please type in your username.</p>
+            <input id="nick">
+            <input id="password" type="password">
+            <p id="nickname-err">Nickname already in use</p>
+            <button>Submit</button>
+        </form>
+    </div>
+    <div id="connecting">
+        <div class="wrap">Connecting to socket.io server</div>
+    </div>
+
+    <div id="messages">
+        <div id="lines"></div>
+    </div>
+
+    <form id="send-message">
+        <input id="message">
+        <button>Send</button>
+    </form>
+</div>
+{% endblock %}
