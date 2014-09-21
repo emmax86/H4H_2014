@@ -64,7 +64,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/white"
-            android:text=" I agree"
+            android:text=" I agree to the End User License Agreement"
             android:button="@drawable/checkboxshape"
             android:id="@+id/agreementCheckBox"
             android:layout_gravity="center" />
