@@ -37,9 +37,9 @@ public class Rating_Activity extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void reviewButtonClick(View view) {
+    public void submitReview(View view) {
         Toast.makeText(this, "Thank you for the honest review.", Toast.LENGTH_LONG).show();
-        Intent intent = new Intent(this, Rating_Activity.class);
+        Intent intent = new Intent(this, Login_Activity.class);
         startActivity(intent);
     }
 }
