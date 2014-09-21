@@ -14,11 +14,17 @@
 
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="152dp"
+        android:layout_height="195dp"
         android:id="@+id/imageView"
-        android:layout_weight="0.55"
-        android:contentDescription="" />
+        android:src="@drawable/pocketshrink160"
+        />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.22" />
 
     <Button
         android:id="@+id/goButton"
