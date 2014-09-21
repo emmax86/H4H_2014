@@ -1,11 +1,13 @@
 package com.stevex86.miletus;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -49,5 +51,10 @@ public class Chat_Activity extends Activity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public void reviewButtonClick(View view) {
+        Intent intent = new Intent(this, Rating_Activity.class);
+        startActivity(intent);
     }
 }
