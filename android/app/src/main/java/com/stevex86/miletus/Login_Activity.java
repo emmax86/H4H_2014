@@ -3,12 +3,12 @@ package com.stevex86.miletus;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,7 +17,6 @@ import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
-import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
 
@@ -29,6 +28,8 @@ import java.io.IOException;
 
  */
 public class Login_Activity extends Activity {
+
+    public final static String CHATROOM_ID = "com.stevex86.miletus.CHATROOM_ID";
 
     private Button enterButton;
     private Button showLicenseButton;
@@ -84,13 +85,22 @@ public class Login_Activity extends Activity {
         HttpGet get = new HttpGet("http://stevex86.com:5000/create_room");
         try {
             HttpResponse response = client.execute(get);
-            HttpEntity entity = response.getEntity();
-            String responseBody = EntityUtils.toString(entity);
-            Toast.makeText(this, responseBody, Toast.LENGTH_LONG).show();
+            if(response.getStatusLine().getStatusCode() == 200) {
+                HttpEntity entity = response.getEntity();
+                String responseBody = EntityUtils.toString(entity);
+                String chatroom_id = responseBody.replace("Response: OK!\n", "");
+                Intent intent = new Intent(this, Chat_Activity.class);
+                intent.putExtra(CHATROOM_ID, chatroom_id);
+                startActivity(intent);
+            }
+            else {
+                Toast.makeText(this, "An error occurred.", Toast.LENGTH_LONG).show();
+            }
         } catch (ClientProtocolException e) {
             e.printStackTrace();
+            Toast.makeText(this, "An error occurred.", Toast.LENGTH_LONG).show();
         } catch (IOException e) {
-            e.printStackTrace();
+            Toast.makeText(this, "An error occurred.", Toast.LENGTH_LONG).show();
         }
     }
 }

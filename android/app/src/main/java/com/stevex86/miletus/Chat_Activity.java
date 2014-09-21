@@ -2,11 +2,14 @@ package com.stevex86.miletus;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.os.SystemClock;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Toast;
 
 import java.net.CookieManager;
 
@@ -16,13 +19,16 @@ public class Chat_Activity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        String roomId;
+        roomId = getIntent().getStringExtra(Login_Activity.CHATROOM_ID);
         android.webkit.CookieManager.getInstance().setAcceptCookie(true);
         setContentView(R.layout.activity_chat);
         WebView myWebView = (WebView) findViewById(R.id.webView);
         myWebView.setWebViewClient(new WebViewClient());
         WebSettings webSettings = myWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
-        myWebView.loadUrl("http://google.com");
+        String url = "http://stevex86.com:5000/" + roomId;
+        myWebView.loadUrl(url);
     }
 
 
