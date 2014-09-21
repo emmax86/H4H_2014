@@ -1,9 +1,12 @@
 package com.stevex86.miletus;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Toast;
 
 
 public class Rating_Activity extends Activity {
@@ -32,5 +35,11 @@ public class Rating_Activity extends Activity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public void reviewButtonClick(View view) {
+        Toast.makeText(this, "Thank you for the honest review.", Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(this, Rating_Activity.class);
+        startActivity(intent);
     }
 }

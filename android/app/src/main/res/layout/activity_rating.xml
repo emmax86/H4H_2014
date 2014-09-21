@@ -68,6 +68,7 @@
         android:layout_height="wrap_content"
         android:textSize="30sp"
         android:id="@+id/submitRating"
+        android:onClick="submitReview"
         android:layout_below="@+id/rating3"
         android:layout_centerHorizontal="true" />
 

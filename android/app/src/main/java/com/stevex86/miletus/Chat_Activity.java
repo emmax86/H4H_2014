@@ -53,8 +53,8 @@ public class Chat_Activity extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void reviewButtonClick(View view) {
-        Intent intent = new Intent(this, Rating_Activity.class);
+    public void submitReview(View view) {
+        Intent intent = new Intent(this, Login_Activity.class);
         startActivity(intent);
     }
 }
